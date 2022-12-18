@@ -1,6 +1,6 @@
 package app.prog.service;
 
-import app.prog.model.AuthorsEntity;
+
 import app.prog.model.TeamEntity;
 import app.prog.repository.TeamRepository;
 import lombok.AllArgsConstructor;

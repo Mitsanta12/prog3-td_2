@@ -1,215 +1,210 @@
 openapi: 3.0.0
 servers:
-  - url: https://virtserver.swaggerhub.com/hei-ryan/PROG3_TD1/1.0.0
+  - url: ...
 info:
   version: "latest"
-  title: PROG3 - TD1
+  title: PROG3 - TD2
 paths:
   /books:
     get:
       tags:
-        - Books
-      summary: get all books
-      operationId: getBooks
+        - Teams
+      summary: get all teams
+      operationId: getTeams
       responses:
         '200':
-          description: List of books
+          description: List of teams
           content:
             application/json:
               schema:
                 type: array
                 items:
-                  $ref: '#/components/schemas/Book'
+                  $ref: '#/components/schemas/Team'
         '500':
           description: Internal server error
     post:
       tags:
-        - Books
-      summary: create new books
-      operationId: createBooks
+        - Teams
+      summary: create new teams
+      operationId: createTeams
       requestBody:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/CreateBook'
+              $ref: '#/components/schemas/CreateTeam'
       responses:
         '200':
-          description: List of created books
+          description: List of created teams
           content:
             application/json:
               schema:
                 type: array
                 items:
-                  $ref: '#/components/schemas/Book'
+                  $ref: '#/components/schemas/Team'
         '500':
           description: Internal server error
     put:
       tags :
-        - Books
-      summary: update some books
-      operationId: updateBooks
+        - Teams
+      summary: update some teams
+      operationId: updateTeam
       requestBody:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/UpdateBook'
+              $ref: '#/components/schemas/UpdateTeam'
       responses:
         '200':
-          description: List of updated books
+          description: List of updated teams
           content:
             application/json:
               schema:
                 type: array
                 items:
-                  $ref: '#/components/schemas/Book'
+                  $ref: '#/components/schemas/Team'
         '500':
           description: Internal server error
   /books/{bookId}:
     delete:
       tags :
-        - Books
-      summary: delete a specific book
-      operationId: deleteBook
+        - Teams
+      summary: delete a specific team
+      operationId: deleteTeam
       parameters:
         - in: path
-          name: bookId
+          name: TeamId
           schema:
             type: integer
           required: true
       responses:
         '200':
-          description: Return the deleted book
+          description: Return the deleted team
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Book'
+                $ref: '#/components/schemas/Team'
         '500':
           description: Internal server error
-  /authors:
+  /players:
     get:
       tags:
-        - Authors
-      summary: get all authors
-      operationId: getAuthors
+        - Players
+      summary: get all players
+      operationId: getPlayers
       responses:
         '200':
-          description: List of authors
+          description: List of players
           content:
             application/json:
               schema:
                 type: array
                 items:
-                  $ref: '#/components/schemas/Author'
+                  $ref: '#/components/schemas/Player'
         '500':
           description: Internal server error
     post:
       tags:
-        - Authors
-      summary: create new authors
-      operationId: createAuthors
+        - Players
+      summary: create new players
+      operationId: CreatePlayers
       requestBody:
         content:
           application/json:
             schema:
               type: array
               items:
-                $ref: '#/components/schemas/CreateAuthor'
+                $ref: '#/components/schemas/CreatePlayer'
       responses:
         '200':
-          description: List of created authors
+          description: List of created players
           content:
             application/json:
               schema:
                 type: array
                 items:
-                  $ref: '#/components/schemas/Author'
+                  $ref: '#/components/schemas/Player'
         '500':
           description: Internal server error
     put:
       tags:
-        - Authors
-      summary: update some authors
-      operationId: updateBooks
+        - Players
+      summary: update some players
+      operationId: updatePlayers
       requestBody:
         content:
           application/json:
             schema:
               type: array
               items:
-                $ref: '#/components/schemas/UpdateAuthor'
+                $ref: '#/components/schemas/UpdatePlayer'
       responses:
         '200':
-          description: List of updated authors
+          description: List of updated players
           content:
             application/json:
               schema:
                 type: array
                 items:
-                  $ref: '#/components/schemas/Author'
+                  $ref: '#/components/schemas/Player'
         '500':
           description: Internal server error
-  /authors/{authorId}:
+  /players/{playerId}:
     delete:
       tags:
-        - Authors
-      summary: delete a specific book
-      operationId: deleteBook
+        - Players
+      summary: delete a specific player
+      operationId: deletePlayer
       parameters:
         - in: path
-          name: authorId
+          name: playerId
           schema:
             type: integer
           required: true
       responses:
         '200':
-          description: Return the deleted author
+          description: Return the deleted player
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Author'
+                $ref: '#/components/schemas/Player'
         '500':
           description: Internal server error
+
 components:
   schemas:
-    Book:
+    Team:
       type: object
-      properties:
-        hasAuthor:
-          type: boolean
       allOf:
-        - $ref: '#/components/schemas/UpdateBook'
-    UpdateBook:
+        - $ref: '#/components/schemas/UpdateTeam'
+    UpdateTeam:
       allOf:
-        - $ref: '#/components/schemas/CreateBook'
+        - $ref: '#/components/schemas/CreateTeam'
       properties:
         id:
           type: integer
-    CreateBook:
-      type: object
-      properties:
-        title:
-          type: string
-        author:
-          type: string
-    Author:
-      type: object
-      properties:
-        hasParticularity:
-          type: boolean
-      allOf:
-        - $ref: '#/components/schemas/UpdateAuthor'
-    UpdateAuthor:
-      allOf:
-        - $ref: '#/components/schemas/CreateAuthor'
-      properties:
-        id:
-          type: integer
-    CreateAuthor:
+    CreateTeam:
       type: object
       properties:
         name:
           type: string
-        birthDate:
-          type: string
         particularity:
           type: string
+    Player:
+      type: object
+      properties:
+        name:
+          type: string
+      allOf:
+        - $ref: '#/components/schemas/UpdatePlayer'
+    UpdatePlayer:
+      allOf:
+        - $ref: '#/components/schemas/CreatePlayer'
+      properties:
+        id:
+          type: integer
+    CreatePlayer:
+      type: object
+      properties:
+        name:
+          type: string
+

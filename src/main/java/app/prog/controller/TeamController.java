@@ -1,11 +1,9 @@
 package app.prog.controller;
 
-import app.prog.controller.mapper.AuthorRestMapper;
+
 import app.prog.controller.mapper.TeamRestMapper;
 import app.prog.controller.response.*;
-import app.prog.model.AuthorsEntity;
 import app.prog.model.TeamEntity;
-import app.prog.service.AuthorService;
 import app.prog.service.TeamService;
 import lombok.AllArgsConstructor;
 import org.springframework.web.bind.annotation.*;

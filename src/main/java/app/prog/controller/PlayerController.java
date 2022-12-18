@@ -34,8 +34,8 @@ public class PlayerController {
                 .toList();
     }
 
-    @PutMapping("/authors")
-    public List<PlayerResponse> updateBooks(@RequestBody List<UpdatePlayerResponse> toUpdate) {
+    @PutMapping("/players")
+    public List<PlayerResponse> updatePlayer(@RequestBody List<UpdatePlayerResponse> toUpdate) {
         List<PlayerEntity> domain = toUpdate.stream()
                 .map(mapper::toDomain)
                 .toList();
@@ -44,7 +44,7 @@ public class PlayerController {
                 .toList();
     }
 
-    @DeleteMapping("/authors/{authorId}")
+    @DeleteMapping("/players/{playerId}")
     public PlayerResponse deletePlayer(@PathVariable Integer playerId) {
         return mapper.toRest(service.deletePlayer(playerId));
     }

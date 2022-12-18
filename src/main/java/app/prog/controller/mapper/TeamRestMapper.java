@@ -1,7 +1,6 @@
 package app.prog.controller.mapper;
 
 import app.prog.controller.response.*;
-import app.prog.model.AuthorsEntity;
 import app.prog.model.TeamEntity;
 import org.springframework.stereotype.Component;
 
