@@ -1,6 +1,5 @@
-CREATE TABLE player (
+CREATE TABLE team (
   id SERIAL PRIMARY KEY,
   name VARCHAR(255) NOT NULL,
-  number INTEGER NOT NULL
+  constrai
 );
-

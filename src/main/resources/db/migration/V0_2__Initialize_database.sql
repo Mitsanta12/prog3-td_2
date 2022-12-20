@@ -1,6 +1,6 @@
-create table player
-(
-    id_player   serial,
-    name_player varchar,
-    primary key (id)
+CREATE TABLE sponsor (
+  id SERIAL PRIMARY KEY,
+  name VARCHAR(255) NOT NULL
 );
+
+
